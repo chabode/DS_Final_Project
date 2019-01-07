@@ -1,0 +1,128 @@
+﻿Source: [UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing)
+Please cite: S. Moro, R. Laureano and P. Cortez. Using Data Mining for Bank Direct Marketing: An Application of the CRISP-DM Methodology. In P. Novais et al. (Eds.), Proceedings of the European Simulation and Modelling Conference - ESM'2011, pp. 117-121, Guimarães, Portugal, October, 2011. EUROSIS. 
+
+Bank Marketing 
+The data is related with direct marketing campaigns of a Portuguese banking institution.
+The marketing campaigns were based on phone calls. 
+Often, more than one contact to the same client was required, 
+in order to access if the product (bank term deposit) would be (or not) subscribed. 
+
+The classification goal is to predict if the client will subscribe a term deposit (variable y).
+
+### Attribute information 
+For more information, read [Moro et al., 2011].
+
+Input variables:
+
+- bank client data:
+
+1 - age (numeric) 
+
+2 - job : type of job (categorical: "admin.","unknown","unemployed","management","housemaid","entrepreneur", "student","blue-collar","self-employed","retired","technician","services") 
+
+3 - marital : marital status (categorical: "married","divorced","single"; note: "divorced" means divorced or widowed) 
+
+4 - education (categorical: "unknown","secondary","primary","tertiary") 
+
+5 - default: has credit in default? (binary: "yes","no")  To default means to fail to repay a loan or line of credit. 
+
+6 - balance: average yearly balance, in euros (numeric) 
+
+7 - housing: has housing loan? (binary: "yes","no") 
+
+8 - loan: has personal loan? (binary: "yes","no")
+
+- related with the last contact of the current campaign:
+
+9 - contact: contact communication type (categorical: "unknown","telephone","cellular")
+
+10 - day: last contact day of the month (numeric)
+
+11 - month: last contact month of year (categorical: "jan", "feb", "mar", ..., "nov", "dec")
+
+12 - duration: last contact duration, in seconds (numeric)
+
+- other attributes:
+
+13 - campaign: number of contacts performed during this campaign and for this client (numeric, includes last contact)
+
+14 - pdays: number of days that passed by after the client was last contacted from a previous campaign (numeric, -1 means client was not previously contacted) 
+
+15 - previous: number of contacts performed before this campaign and for this client (numeric) 
+
+16 - poutcome: outcome of the previous marketing campaign (categorical: "unknown","other","failure","success")
+
+- output variable (desired target):
+
+17 - y - has the client subscribed a term deposit? (binary: "yes","no")
+
+
+==================================================================================
+data modelling
+n_estimators=500,learning_rate=0.15, max_depth=4, n_jobs=-1
+
+[[7069  875]
+ [ 210  889]]
+              precision    recall  f1-score   support
+
+           1       0.97      0.89      0.93      7944
+           2       0.50      0.81      0.62      1099
+
+   micro avg       0.88      0.88      0.88      9043
+   macro avg       0.74      0.85      0.77      9043
+weighted avg       0.91      0.88      0.89      9043
+
+ROC AUC :  0.8493855876485719
+Accuracy :  0.8800176932433926
+Matthews Corr_coef :  0.5761934216320256
+========================================================================
+n_estimators=550,learning_rate=0.15, max_depth=4, n_jobs=-1
+
+[[7092  852]
+ [ 214  885]]
+              precision    recall  f1-score   support
+
+           1       0.97      0.89      0.93      7944
+           2       0.51      0.81      0.62      1099
+
+   micro avg       0.88      0.88      0.88      9043
+   macro avg       0.74      0.85      0.78      9043
+weighted avg       0.91      0.88      0.89      9043
+
+ROC AUC :  0.8490133848678696
+Accuracy :  0.8821187658962734
+Matthews Corr_coef :  0.578962985584087
+==========================================================================
+n_estimators=600,learning_rate=0.15, max_depth=4, n_jobs=-1
+
+[[7108  836]
+ [ 222  877]]
+              precision    recall  f1-score   support
+
+           1       0.97      0.89      0.93      7944
+           2       0.51      0.80      0.62      1099
+
+   micro avg       0.88      0.88      0.88      9043
+   macro avg       0.74      0.85      0.78      9043
+weighted avg       0.91      0.88      0.89      9043
+
+ROC AUC :  0.8463807617838061
+Accuracy :  0.8830034280659074
+Matthews Corr_coef :  0.5776590129487208
+========================================================================
+n_estimators=500,learning_rate=0.14, max_depth=4, n_jobs=-1
+
+[[7049  895]
+ [ 206  893]]
+              precision    recall  f1-score   support
+
+           1       0.97      0.89      0.93      7944
+           2       0.50      0.81      0.62      1099
+
+   micro avg       0.88      0.88      0.88      9043
+   macro avg       0.74      0.85      0.77      9043
+weighted avg       0.91      0.88      0.89      9043
+
+ROC AUC :  0.8499466121815401
+Accuracy :  0.8782483689041247
+Matthews Corr_coef :  0.5741796384457126
